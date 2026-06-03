@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RH Estratégico para empresas que querem transformar pessoas em resultado.</title>
+  <meta name="description" content="Consultoria de RH Estratégico. A Kore ajuda empresas a diagnosticar problemas, desenvolver lideranças, estruturar cultura e reduzir riscos psicossociais.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       PALETA OFICIAL KORE (sistema hexadecimal)
+       Mude aqui e o site inteiro acompanha
+    ============================================ */
+    :root {
+      --blue: #1E3A8A;       /* PRIMÁRIA - Azul profundo (autoridade) */
+      --blue-deep: #15296b;  /* variação escura (rodapé) */
+      --blue-soft: #2a4ba0;  /* variação clara (hover) */
+      --wine: #661414;       /* DESTAQUE - Vinho (ação, CTAs) */
+      --wine-soft: #8a2222;  /* vinho mais claro (hover) */
+      --gray: #475569;       /* SECUNDÁRIA - Cinza (textos de apoio) */
+      --ice: #F8FAFC;        /* SUPORTE - Branco gelo (fundos, respiro) */
+      --white: #ffffff;
+      --ink: #0f1d40;        /* azul quase preto (títulos) */
+      --line: #e2e8f0;       /* linhas e bordas */
+      --sans: 'Hanken Grotesk', system-ui, sans-serif;
+    }
+
+    /* ============ RESET BÁSICO ============ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--blue);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+    section { padding: 110px 0; }
+
+    /* Rótulo pequeno acima dos títulos */
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wine);
+      margin-bottom: 18px;
+    }
+
+    /* ============ BOTÕES ============ */
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--wine); color: var(--ice); }
+    .btn-primary:hover { background: var(--wine-soft); transform: translateY(-2px); }
+    .btn-outline { border: 1.5px solid currentColor; background: transparent; }
+    .btn-outline:hover { background: var(--ink); color: var(--ice); transform: translateY(-2px); }
+
+    /* ============ CABEÇALHO ============ */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 28px; max-width: 1180px; margin: 0 auto;
+    }
+    .nav .brand img { height: 42px; width: auto; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--gray); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ============ HERO ============ */
+    .hero { background: var(--blue); color: var(--ice); padding: 120px 0 130px; }
+    .hero .eyebrow { color: #d98b8b; }
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      max-width: 16ch; margin-bottom: 28px; color: var(--ice);
+      font-weight: 800;
+    }
+    .hero p { font-size: 19px; max-width: 60ch; color: rgba(248, 250, 252, 0.82); margin-bottom: 36px; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ============ POSICIONAMENTO ============ */
+    .posicionamento h2 { font-size: clamp(28px, 4vw, 42px); max-width: 24ch; margin-bottom: 26px; }
+    .posicionamento .lead { font-size: 18px; color: var(--gray); max-width: 65ch; margin-bottom: 14px; }
+    .destaque { font-style: italic; color: var(--wine); font-size: 20px; font-weight: 500; }
+
+    .servicos-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px; background: var(--line); margin-top: 64px; border: 1px solid var(--line);
+    }
+    .servico { background: var(--white); padding: 36px 32px; }
+    .servico h3 { font-size: 21px; margin-bottom: 12px; }
+    .servico p { font-size: 15.5px; color: var(--gray); }
+
+    /* ============ SINAIS DE ALERTA ============ */
+    .alerta { background: var(--ice); }
+    .section-head { max-width: 60ch; margin-bottom: 56px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 18px; }
+    .section-head p { font-size: 18px; color: var(--gray); }
+
+    .alerta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+    .card-alerta {
+      background: var(--white); border: 1px solid var(--line); border-radius: 12px;
+      padding: 32px 28px; border-top: 3px solid var(--wine);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card-alerta:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(30, 58, 138, 0.1); }
+    .card-alerta .num { color: var(--wine); font-size: 15px; font-weight: 700; display: block; margin-bottom: 14px; }
+    .card-alerta h3 { font-size: 20px; margin-bottom: 10px; }
+    .card-alerta p { font-size: 15px; color: var(--gray); }
+
+    .cta-faixa {
+      margin-top: 64px; background: var(--blue); color: var(--ice); border-radius: 14px;
+      padding: 48px 44px; display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .cta-faixa p { font-size: 19px; max-width: 60ch; color: rgba(248, 250, 252, 0.9); }
+    .cta-faixa p strong { color: var(--ice); font-weight: 700; }
+
+    /* ============ SOLUÇÕES ============ */
+    .soldes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 44px; }
+    .pill-sol {
+      background: var(--ice); border: 1px solid var(--line); border-left: 4px solid var(--blue);
+      border-radius: 8px; padding: 24px 26px; font-size: 19px; font-weight: 600; color: var(--blue);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .pill-sol:hover { background: var(--blue); color: var(--ice); border-color: var(--blue); }
+    .sol-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ============ MÉTODO KORE ============ */
+    .metodo { background: var(--ice); }
+    .passos { display: flex; flex-direction: column; margin-top: 20px; }
+    .passo {
+      display: grid; grid-template-columns: 90px 1fr; gap: 28px;
+      padding: 32px 0; border-top: 1px solid var(--line); align-items: start;
+    }
+    .passo:last-child { border-bottom: 1px solid var(--line); }
+    .passo .big-num { font-size: 52px; font-weight: 800; color: var(--wine); line-height: 1; }
+    .passo h3 { font-size: 22px; margin-bottom: 10px; }
+    .passo p { color: var(--gray); max-width: 65ch; }
+
+    blockquote {
+      margin: 50px 0 38px; font-style: italic; font-size: clamp(22px, 3vw, 30px);
+      color: var(--blue); line-height: 1.4; max-width: 32ch; font-weight: 500;
+      border-left: 4px solid var(--wine); padding-left: 28px;
+    }
+
+    /* ============ NR-01 E SAÚDE MENTAL ============ */
+    .nr01 { background: var(--blue); color: var(--ice); }
+    .nr01 .eyebrow { color: #d98b8b; }
+    .nr01 h2 { font-size: clamp(28px, 4vw, 44px); max-width: 22ch; margin-bottom: 22px; color: var(--ice); }
+    .nr01 .intro { color: rgba(248, 250, 252, 0.82); font-size: 18px; max-width: 70ch; margin-bottom: 56px; }
+    .nr-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px; margin-bottom: 50px; }
+    .nr-col h3 { font-size: 23px; margin-bottom: 22px; padding-bottom: 14px; color: var(--ice); border-bottom: 1px solid rgba(248, 250, 252, 0.25); }
+    .nr-col ul { list-style: none; }
+    .nr-col li { padding: 11px 0 11px 28px; position: relative; color: rgba(248, 250, 252, 0.85); border-bottom: 1px solid rgba(248, 250, 252, 0.1); }
+    .nr-col li::before { content: "+"; position: absolute; left: 0; color: #d98b8b; font-weight: 700; }
+    .nr-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .nr01 .btn-outline { color: var(--ice); }
+    .nr01 .btn-outline:hover { background: var(--ice); color: var(--blue); }
+
+    /* ============ SOBRE A KORE ============ */
+    .sobre h2 { font-size: clamp(28px, 4vw, 44px); max-width: 22ch; margin-bottom: 28px; }
+    .sobre p { color: var(--gray); max-width: 70ch; margin-bottom: 18px; font-size: 17.5px; }
+    .sobre em { color: var(--wine); font-style: italic; font-weight: 500; }
+
+    .principios { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin: 50px 0; }
+    .principio { border-top: 2px solid var(--wine); padding-top: 18px; }
+    .principio strong { display: block; font-size: 18px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+    .principio span { font-size: 15px; color: var(--gray); }
+
+    .consultor { background: var(--ice); border: 1px solid var(--line); border-radius: 14px; padding: 44px 40px; margin-top: 30px; }
+    .consultor h3 { font-size: 26px; margin-bottom: 16px; }
+    .consultor p { max-width: 75ch; margin-bottom: 24px; color: var(--gray); }
+
+    /* ============ PARA QUEM É ============ */
+    .paraquem { background: var(--ice); }
+    .paraquem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .quem-card { background: var(--white); border-radius: 12px; padding: 32px 30px; border: 1px solid var(--line); }
+    .quem-card h3 { font-size: 21px; margin-bottom: 10px; }
+    .quem-card p { font-size: 15px; color: var(--gray); }
+    .paraquem-foot { margin-top: 44px; font-size: 18px; color: var(--gray); max-width: 75ch; }
+    .paraquem-foot strong { color: var(--blue); }
+
+    /* ============ INSIGHTS ============ */
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 30px; margin-top: 50px; }
+    .insight { border-top: 2px solid var(--blue); padding-top: 24px; }
+    .insight h3 { font-size: 22px; margin-bottom: 12px; }
+    .insight p { color: var(--gray); font-size: 15.5px; }
+
+    /* ============ CONTATO ============ */
+    .contato { background: var(--blue); color: var(--ice); }
+    .contato .eyebrow { color: #d98b8b; }
+    .contato h2 { font-size: clamp(28px, 4vw, 44px); max-width: 24ch; margin-bottom: 22px; color: var(--ice); }
+    .contato .intro { color: rgba(248, 250, 252, 0.82); font-size: 18px; max-width: 70ch; margin-bottom: 50px; }
+    .canais { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 50px; }
+    .canal strong { display: block; color: #d98b8b; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+    .canal a, .canal span { color: var(--ice); font-size: 17px; }
+    .canal a:hover { color: #d98b8b; }
+
+    /* ============ RODAPÉ ============ */
+    footer { background: var(--blue-deep); color: rgba(248, 250, 252, 0.7); padding: 32px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: 14px; }
+    .footer-brand .badge { background: var(--white); border-radius: 10px; padding: 8px; display: flex; }
+    .footer-brand .badge img { height: 34px; width: auto; }
+    .footer-brand span { color: var(--ice); font-weight: 600; font-size: 17px; }
+
+    /* ============ RESPONSIVO (celular) ============ */
+    @media (max-width: 720px) {
+      section { padding: 70px 0; }
+      .nav-links { display: none; }
+      .passo { grid-template-columns: 56px 1fr; gap: 18px; }
+      .passo .big-num { font-size: 38px; }
+      .cta-faixa { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ CABEÇALHO ============ -->
+  <header>
+    <nav class="nav">
+      <a href="#inicio" class="brand"><img src="logo_full.png" alt="Kore RH Estratégico"></a>
+      <div class="nav-links">
+        <a href="#posicionamento">Posicionamento</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#metodo">Método</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar diagnóstico</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <p class="eyebrow">Consultoria de RH Estratégico</p>
+      <h1>RH Estratégico para empresas que querem transformar pessoas em resultado.</h1>
+      <p>A Kore RH Estratégico ajuda empresas a diagnosticar problemas, desenvolver lideranças, estruturar cultura, organizar processos de RH e reduzir riscos psicossociais — com método, clareza e foco em resultado.</p>
+      <div class="hero-buttons">
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar diagnóstico</a>
+        <a href="#solucoes" class="btn btn-outline" style="color: var(--ice);">Conhecer soluções</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POSICIONAMENTO ============ -->
+  <section class="posicionamento" id="posicionamento">
+    <div class="container">
+      <p class="eyebrow">Posicionamento</p>
+      <h2>Não fazemos RH tradicional. Fazemos RH como ferramenta de gestão.</h2>
+      <p class="lead">A Kore atua no centro das decisões que impactam pessoas, liderança, cultura e crescimento. Nosso trabalho conecta psicologia organizacional, diagnóstico estruturado, plano de ação e acompanhamento contínuo — para transformar problemas humanos em decisões estratégicas com impacto real no negócio.</p>
+      <p class="destaque">Enquanto o RH tradicional administra processos, a Kore interpreta o sistema organizacional.</p>
+
+      <div class="servicos-grid">
+        <div class="servico"><h3>Diagnóstico Organizacional</h3><p>Entenda sintomas, causas, riscos e oportunidades antes de agir. Primeiro compreendemos, depois recomendamos.</p></div>
+        <div class="servico"><h3>Liderança e Cultura</h3><p>Desenvolva líderes capazes de sustentar comportamentos organizacionais de alto desempenho.</p></div>
+        <div class="servico"><h3>RH Estratégico</h3><p>Organize processos, rotinas, indicadores e práticas de gestão de pessoas para que o RH apoie decisões do negócio.</p></div>
+        <div class="servico"><h3>NR's e Riscos Psicossociais (NR-01)</h3><p>Transforme obrigação legal em estratégia preventiva: plano de ação, sensibilização e integração com a gestão.</p></div>
+        <div class="servico"><h3>Recrutamento e Seleção de Talentos</h3><p>Encontre o talento certo para o lugar certo e pare de perder dinheiro com pessoas que não fazem sentido para sua empresa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SINAIS DE ALERTA ============ -->
+  <section class="alerta">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Sinais de alerta</p>
+        <h2>Quando a gestão de pessoas começa a travar o crescimento</h2>
+        <p>É hora de olhar para o núcleo e parar de perder dinheiro.</p>
+      </div>
+      <div class="alerta-grid">
+        <div class="card-alerta"><span class="num">01</span><h3>Alta rotatividade</h3><p>Dificuldade de reter pessoas e turnover acima do esperado para o setor.</p></div>
+        <div class="card-alerta"><span class="num">02</span><h3>Liderança despreparada</h3><p>Líderes desalinhados, sem ferramentas para comunicar, dar feedback ou acompanhar equipes.</p></div>
+        <div class="card-alerta"><span class="num">03</span><h3>Conflitos internos recorrentes</h3><p>Tensões entre áreas, pessoas ou hierarquias que consomem energia e travam entregas.</p></div>
+        <div class="card-alerta"><span class="num">04</span><h3>RH muito operacional</h3><p>Área de RH focada em tarefas administrativas, sem atuação estratégica ou indicadores de gestão.</p></div>
+        <div class="card-alerta"><span class="num">05</span><h3>Cultura fragilizada</h3><p>Valores declarados que não se traduzem em comportamentos reais do dia a dia.</p></div>
+        <div class="card-alerta"><span class="num">06</span><h3>Riscos psicossociais sem plano</h3><p>Pressão, sobrecarga e sinais de adoecimento sem diagnóstico estruturado ou ação preventiva.</p></div>
+      </div>
+      <div class="cta-faixa">
+        <p>A Kore começa pela escuta diagnóstica. Primeiro entendemos o contexto, depois estruturamos o caminho. <strong>Vamos entender o que está acontecendo na sua empresa antes de propor qualquer solução.</strong></p>
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar conversa inicial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUÇÕES ============ -->
+  <section id="solucoes">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Soluções</p>
+        <h2>Soluções para transformar pessoas, liderança e cultura em resultado.</h2>
+      </div>
+      <div class="soldes-grid">
+        <div class="pill-sol">Diagnóstico Organizacional</div>
+        <div class="pill-sol">RH Estratégico</div>
+        <div class="pill-sol">Desenvolvimento de Lideranças</div>
+        <div class="pill-sol">Treinamentos Corporativos</div>
+        <div class="pill-sol">Cultura Organizacional</div>
+        <div class="pill-sol">NR's e Riscos Psicossociais (NR-01)</div>
+      </div>
+      <div class="sol-buttons">
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Solicitar proposta</a>
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-outline">Falar com a Kore</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MÉTODO KORE ============ -->
+  <section class="metodo" id="metodo">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Método Kore</p>
+        <h2>Diagnóstico, clareza e execução.</h2>
+        <p>Antes de recomendar uma solução, entendemos o sistema. A Kore trabalha com método consultivo estruturado para que cada intervenção tenha sentido, prioridade e aplicação prática — sem improvisos, sem soluções genéricas e sem etapas puladas.</p>
+      </div>
+      <div class="passos">
+        <div class="passo"><div class="big-num">01</div><div><h3>Escuta diagnóstica</h3><p>Entendemos o contexto, ouvimos lideranças e identificamos as dores reais por trás dos sintomas apresentados.</p></div></div>
+        <div class="passo"><div class="big-num">02</div><div><h3>Leitura organizacional</h3><p>Cruzamos informações sobre cultura, liderança, processos, comunicação, RH e saúde mental no trabalho.</p></div></div>
+        <div class="passo"><div class="big-num">03</div><div><h3>Plano de ação</h3><p>Transformamos achados em prioridades, responsáveis, prazos, indicadores e decisões práticas e aplicáveis.</p></div></div>
+        <div class="passo"><div class="big-num">04</div><div><h3>Execução</h3><p>Conduzimos treinamentos, reuniões, devolutivas, processos e ações direcionadas à realidade do cliente.</p></div></div>
+        <div class="passo"><div class="big-num">05</div><div><h3>Acompanhamento</h3><p>Apoiamos a sustentação das mudanças com rituais, indicadores, checkpoints e ajustes de rota.</p></div></div>
+      </div>
+      <blockquote>"A Kore não entrega apenas conteúdo. Entregamos clareza para decidir, método para executar e acompanhamento para evoluir."</blockquote>
+      <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Solicitar proposta</a>
+    </div>
+  </section>
+
+  <!-- ============ NR-01 E SAÚDE MENTAL ============ -->
+  <section class="nr01">
+    <div class="container">
+      <p class="eyebrow">NR-01 e Saúde Mental</p>
+      <h2>NR-01, riscos psicossociais e saúde mental no trabalho com abordagem estratégica.</h2>
+      <p class="intro">A atualização da gestão de riscos psicossociais exige mais do que documentos e checklists. Exige leitura organizacional aprofundada, lideranças preparadas, comunicação clara e plano de ação acompanhado de perto. A Kore atua de forma técnico-consultiva e preventiva, integrando saúde mental à gestão estratégica de pessoas.</p>
+      <div class="nr-cols">
+        <div class="nr-col">
+          <h3>O que a Kore apoia</h3>
+          <ul>
+            <li>Levantamento de fatores psicossociais relacionados ao trabalho</li>
+            <li>Diagnóstico organizacional preventivo</li>
+            <li>Organização de evidências e construção de matriz de riscos</li>
+            <li>Sensibilização de lideranças e equipes</li>
+            <li>Plano de ação com responsáveis, prazos e indicadores</li>
+            <li>Integração com práticas de RH, liderança, cultura e SST</li>
+          </ul>
+        </div>
+        <div class="nr-col">
+          <h3>Fatores que podem ser investigados</h3>
+          <ul>
+            <li>Sobrecarga de trabalho e pressão excessiva por resultado</li>
+            <li>Falta de clareza de papéis e responsabilidades</li>
+            <li>Conflitos interpessoais e condutas inadequadas</li>
+            <li>Comunicação disfuncional entre áreas ou lideranças</li>
+            <li>Liderança despreparada para gestão de pessoas</li>
+            <li>Falta de reconhecimento e baixa segurança psicológica</li>
+            <li>Mudanças organizacionais mal conduzidas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="nr-buttons">
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Quero estruturar meu plano de ação</a>
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-outline">Adequar minha empresa à NR-01</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE A KORE ============ -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <p class="eyebrow">Sobre a Kore</p>
+      <h2>Kore: o núcleo estratégico da gestão de pessoas.</h2>
+      <p>O nome Kore vem da ideia de <em>core</em>: núcleo, centro, essência. Representa o coração estratégico da empresa — aquilo que sustenta a operação, as decisões e o crescimento sustentável de longo prazo.</p>
+      <p>A Kore RH Estratégico nasce para fugir do RH tradicional e atuar no centro das decisões que impactam pessoas, liderança, cultura e resultado. Unimos psicologia organizacional, visão de negócio e método consultivo para ajudar empresas a compreenderem seus problemas com profundidade e executarem mudanças com clareza, responsabilidade e consistência.</p>
+      <p>Trabalhamos com empresários, diretores e gestores que entendem que pessoas são o núcleo do negócio — e que precisam de um parceiro consultivo capaz de transformar desafios humanos em decisões estratégicas e ações concretas.</p>
+      <div class="principios">
+        <div class="principio"><strong>Diagnóstico antes de solução.</strong><span>Nunca propomos antes de entender.</span></div>
+        <div class="principio"><strong>Escuta antes de proposta.</strong><span>O contexto do cliente orienta tudo.</span></div>
+        <div class="principio"><strong>Método antes de improviso.</strong><span>Estrutura que sustenta execução.</span></div>
+        <div class="principio"><strong>Pessoas conectadas ao resultado.</strong><span>Humanidade com clareza estratégica.</span></div>
+      </div>
+      <div class="consultor">
+        <h3>Eduardo Guarachi</h3>
+        <p>Psicólogo organizacional e consultor em RH estratégico, Eduardo conduz projetos de diagnóstico, desenvolvimento organizacional, liderança, cultura, NR-01, saúde mental no trabalho e estruturação de RH com abordagem consultiva, humana e orientada a resultado. Sua atuação combina rigor metodológico com escuta apurada, entregando aos clientes não apenas análises, mas caminhos claros para agir com mais inteligência na gestão de pessoas.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-outline">Falar com a Kore</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARA QUEM É ============ -->
+  <section class="paraquem">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Para quem é</p>
+        <h2>Para empresas que precisam amadurecer a gestão de pessoas sem perder o foco no resultado.</h2>
+        <p>A Kore atua com empresas de diferentes setores e estágios de maturidade organizacional. O denominador comum é sempre o mesmo: líderes que entendem que pessoas são estratégicas para o crescimento — e que precisam de um parceiro consultivo para estruturar esse caminho com método e clareza.</p>
+      </div>
+      <div class="paraquem-grid">
+        <div class="quem-card"><h3>Indústrias</h3><p>Que precisam melhorar liderança operacional, padronizar processos e fortalecer cultura em ambientes de alta pressão produtiva.</p></div>
+        <div class="quem-card"><h3>Varejos</h3><p>Que enfrentam alta rotatividade, pressão operacional intensa e necessidade de padronização de atendimento e gestão de equipes.</p></div>
+        <div class="quem-card"><h3>Agronegócios</h3><p>Que precisam estruturar gestão de pessoas, liderança de campo e processos de RH em operações com especificidades únicas.</p></div>
+        <div class="quem-card"><h3>Empresas familiares</h3><p>Em fase de profissionalização que precisam separar vínculos pessoais de estruturas de gestão claras, objetivas e funcionais.</p></div>
+        <div class="quem-card"><h3>Empresas em crescimento</h3><p>Que precisam transformar o RH de área operacional em área estratégica, capaz de acompanhar a escala com inteligência.</p></div>
+        <div class="quem-card"><h3>Operações com riscos</h3><p>Com conflitos recorrentes, comunicação falha, lideranças sobrecarregadas ou riscos psicossociais sem plano estruturado.</p></div>
+      </div>
+      <p class="paraquem-foot">Independentemente do setor ou tamanho, a Kore trabalha com um princípio: <strong>entender antes de propor, diagnosticar antes de executar.</strong> Cada projeto é personalizado conforme a realidade e o escopo aprovado em conjunto com o cliente.</p>
+    </div>
+  </section>
+
+  <!-- ============ INSIGHTS ============ -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Insights</p>
+        <h2>Insights para empresas que querem amadurecer sua gestão de pessoas.</h2>
+        <p>Conteúdos sobre RH estratégico, liderança, cultura, diagnóstico organizacional, NR-01 e saúde mental no trabalho. Publicamos análises e reflexões para líderes e gestores que querem tomar decisões com mais inteligência.</p>
+      </div>
+      <div class="insights-grid">
+        <div class="insight"><h3>Como saber se sua empresa precisa de um diagnóstico organizacional</h3><p>Os sintomas que indicam que é hora de parar de agir por intuição e começar a entender o sistema com método.</p></div>
+        <div class="insight"><h3>O papel da liderança na prevenção de riscos psicossociais</h3><p>Por que líderes são o fator mais crítico na construção de ambientes de trabalho psicologicamente seguros.</p></div>
+        <div class="insight"><h3>RH estratégico: quando o operacional já não sustenta o crescimento</h3><p>O momento em que gerir folha de pagamento e contratar não é mais suficiente para uma empresa que quer crescer com consistência.</p></div>
+        <div class="insight"><h3>Cultura organizacional não é discurso: é comportamento repetido</h3><p>Como identificar a distância entre a cultura declarada e a cultura vivida — e o que fazer para reduzir esse gap.</p></div>
+        <div class="insight"><h3>NR-01: por que o plano de ação precisa sair do papel</h3><p>As razões pelas quais empresas travam na documentação e nunca chegam à prevenção real dos riscos psicossociais.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <p class="eyebrow">Contato</p>
+      <h2>Vamos entender o que sua empresa precisa desenvolver agora.</h2>
+      <p class="intro">Conte para a Kore qual desafio sua empresa está enfrentando. Vamos indicar o melhor caminho: diagnóstico organizacional, desenvolvimento de liderança, treinamento, RH estratégico, fortalecimento de cultura ou estruturação de NR-01. A conversa começa pela escuta — sem pressa e sem proposta antecipada.</p>
+      <div class="canais">
+        <div class="canal"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send/?phone=5534984411848">(34) 98441-1848</a></div>
+        <div class="canal"><strong>E-mail</strong><a href="mailto:contato@korerhestrategico.com.br">contato@korerhestrategico.com.br</a></div>
+        <div class="canal"><strong>Instagram</strong><a href="https://instagram.com/korerhestrategico">@korerhestrategico</a></div>
+        <div class="canal"><strong>LinkedIn</strong><a href="https://www.linkedin.com/company/kore-rh-estrategico/">Kore RH Estratégico</a></div>
+        <div class="canal"><strong>Localização</strong><span>Frutal-MG / Av. Coronel Delfino Nunes, 1111</span></div>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Falar via WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="badge"><img src="logo_icon.png" alt="Kore"></span>
+        <span>Kore RH Estratégico</span>
+      </div>
+      <span>&copy; 2025 Kore RH Estratégico — Frutal-MG</span>
+    </div>
+  </footer>
+
+</body>
+</html>
