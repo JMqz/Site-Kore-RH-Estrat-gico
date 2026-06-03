@@ -90,9 +90,27 @@
       padding: 14px 28px; max-width: 1180px; margin: 0 auto;
     }
     .nav .brand img { height: 42px; width: auto; }
+    .nav-menu { display: flex; align-items: center; gap: 30px; }
     .nav-links { display: flex; gap: 30px; align-items: center; }
     .nav-links a { font-size: 15px; font-weight: 500; color: var(--gray); transition: color 0.2s; }
     .nav-links a:hover { color: var(--blue); }
+
+    /* Botão hambúrguer (escondido no computador, aparece no celular) */
+    .menu-toggle {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; padding: 10px;
+      background: transparent; border: none; cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block; height: 2.5px; width: 100%;
+      background: var(--blue); border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+    /* Vira um "X" quando o menu está aberto */
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
     /* ============ HERO ============ */
     .hero { background: var(--blue); color: var(--ice); padding: 120px 0 130px; }
@@ -233,12 +251,47 @@
     .footer-brand span { color: var(--ice); font-weight: 600; font-size: 17px; }
 
     /* ============ RESPONSIVO (celular) ============ */
+    @media (max-width: 860px) {
+      .menu-toggle { display: flex; }
+
+      /* O menu vira uma gaveta que abre abaixo do cabeçalho */
+      .nav-menu {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--ice);
+        padding: 8px 28px 24px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 14px 30px rgba(15, 29, 64, 0.1);
+        display: none;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-links { flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links a { padding: 15px 2px; border-bottom: 1px solid var(--line); font-size: 16px; }
+      .nav-menu .btn { margin-top: 18px; text-align: center; }
+    }
+
     @media (max-width: 720px) {
-      section { padding: 70px 0; }
-      .nav-links { display: none; }
-      .passo { grid-template-columns: 56px 1fr; gap: 18px; }
-      .passo .big-num { font-size: 38px; }
-      .cta-faixa { flex-direction: column; align-items: flex-start; }
+      section { padding: 64px 0; }
+      .container { padding: 0 20px; }
+      .nav { padding: 12px 20px; }
+      .nav .brand img { height: 34px; }
+
+      .passo { grid-template-columns: 48px 1fr; gap: 16px; padding: 26px 0; }
+      .passo .big-num { font-size: 34px; }
+
+      .cta-faixa { flex-direction: column; align-items: flex-start; padding: 36px 28px; }
+      .consultor { padding: 34px 26px; }
+      .nr-cols { gap: 36px; }
+      .principios { margin: 36px 0; }
+    }
+
+    /* Telas bem pequenas: botões ocupam a largura toda */
+    @media (max-width: 480px) {
+      body { font-size: 16px; }
+      .hero-buttons, .sol-buttons, .nr-buttons { flex-direction: column; align-items: stretch; }
+      .hero-buttons .btn, .sol-buttons .btn, .nr-buttons .btn,
+      .cta-faixa .btn { width: 100%; text-align: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -248,14 +301,21 @@
   <header>
     <nav class="nav">
       <a href="#inicio" class="brand"><img src="logo_full.png" alt="Kore RH Estratégico"></a>
-      <div class="nav-links">
-        <a href="#posicionamento">Posicionamento</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#metodo">Método</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <div class="nav-links">
+          <a href="#posicionamento">Posicionamento</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#metodo">Método</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar diagnóstico</a>
       </div>
-      <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar diagnóstico</a>
     </nav>
   </header>
 
@@ -264,7 +324,6 @@
     <div class="container">
       <p class="eyebrow">Consultoria de RH Estratégico</p>
       <h1>RH Estratégico para empresas que querem transformar pessoas em resultado.</h1>
-      <p>A Kore RH Estratégico ajuda empresas a diagnosticar problemas, desenvolver lideranças, estruturar cultura, organizar processos de RH e reduzir riscos psicossociais — com método, clareza e foco em resultado.</p>
       <div class="hero-buttons">
         <a href="https://api.whatsapp.com/send/?phone=5534984411848" class="btn btn-primary">Agendar diagnóstico</a>
         <a href="#solucoes" class="btn btn-outline" style="color: var(--ice);">Conhecer soluções</a>
@@ -279,14 +338,6 @@
       <h2>Não fazemos RH tradicional. Fazemos RH como ferramenta de gestão.</h2>
       <p class="lead">A Kore atua no centro das decisões que impactam pessoas, liderança, cultura e crescimento. Nosso trabalho conecta psicologia organizacional, diagnóstico estruturado, plano de ação e acompanhamento contínuo — para transformar problemas humanos em decisões estratégicas com impacto real no negócio.</p>
       <p class="destaque">Enquanto o RH tradicional administra processos, a Kore interpreta o sistema organizacional.</p>
-
-      <div class="servicos-grid">
-        <div class="servico"><h3>Diagnóstico Organizacional</h3><p>Entenda sintomas, causas, riscos e oportunidades antes de agir. Primeiro compreendemos, depois recomendamos.</p></div>
-        <div class="servico"><h3>Liderança e Cultura</h3><p>Desenvolva líderes capazes de sustentar comportamentos organizacionais de alto desempenho.</p></div>
-        <div class="servico"><h3>RH Estratégico</h3><p>Organize processos, rotinas, indicadores e práticas de gestão de pessoas para que o RH apoie decisões do negócio.</p></div>
-        <div class="servico"><h3>NR's e Riscos Psicossociais (NR-01)</h3><p>Transforme obrigação legal em estratégia preventiva: plano de ação, sensibilização e integração com a gestão.</p></div>
-        <div class="servico"><h3>Recrutamento e Seleção de Talentos</h3><p>Encontre o talento certo para o lugar certo e pare de perder dinheiro com pessoas que não fazem sentido para sua empresa.</p></div>
-      </div>
     </div>
   </section>
 
@@ -421,7 +472,6 @@
       <div class="section-head">
         <p class="eyebrow">Para quem é</p>
         <h2>Para empresas que precisam amadurecer a gestão de pessoas sem perder o foco no resultado.</h2>
-        <p>A Kore atua com empresas de diferentes setores e estágios de maturidade organizacional. O denominador comum é sempre o mesmo: líderes que entendem que pessoas são estratégicas para o crescimento — e que precisam de um parceiro consultivo para estruturar esse caminho com método e clareza.</p>
       </div>
       <div class="paraquem-grid">
         <div class="quem-card"><h3>Indústrias</h3><p>Que precisam melhorar liderança operacional, padronizar processos e fortalecer cultura em ambientes de alta pressão produtiva.</p></div>
@@ -441,7 +491,6 @@
       <div class="section-head">
         <p class="eyebrow">Insights</p>
         <h2>Insights para empresas que querem amadurecer sua gestão de pessoas.</h2>
-        <p>Conteúdos sobre RH estratégico, liderança, cultura, diagnóstico organizacional, NR-01 e saúde mental no trabalho. Publicamos análises e reflexões para líderes e gestores que querem tomar decisões com mais inteligência.</p>
       </div>
       <div class="insights-grid">
         <div class="insight"><h3>Como saber se sua empresa precisa de um diagnóstico organizacional</h3><p>Os sintomas que indicam que é hora de parar de agir por intuição e começar a entender o sistema com método.</p></div>
@@ -458,7 +507,6 @@
     <div class="container">
       <p class="eyebrow">Contato</p>
       <h2>Vamos entender o que sua empresa precisa desenvolver agora.</h2>
-      <p class="intro">Conte para a Kore qual desafio sua empresa está enfrentando. Vamos indicar o melhor caminho: diagnóstico organizacional, desenvolvimento de liderança, treinamento, RH estratégico, fortalecimento de cultura ou estruturação de NR-01. A conversa começa pela escuta — sem pressa e sem proposta antecipada.</p>
       <div class="canais">
         <div class="canal"><strong>WhatsApp</strong><a href="https://api.whatsapp.com/send/?phone=5534984411848">(34) 98441-1848</a></div>
         <div class="canal"><strong>E-mail</strong><a href="mailto:contato@korerhestrategico.com.br">contato@korerhestrategico.com.br</a></div>
@@ -480,6 +528,26 @@
       <span>&copy; 2025 Kore RH Estratégico — Frutal-MG</span>
     </div>
   </footer>
+
+  <!-- ============ SCRIPT DO MENU (celular) ============ -->
+  <script>
+    const botaoMenu = document.getElementById('menuToggle');
+    const menu = document.getElementById('navMenu');
+
+    // Abre e fecha o menu ao tocar no botão
+    botaoMenu.addEventListener('click', function () {
+      menu.classList.toggle('open');
+      botaoMenu.classList.toggle('open');
+    });
+
+    // Fecha o menu automaticamente ao tocar em qualquer link
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+        botaoMenu.classList.remove('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
