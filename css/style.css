@@ -28,9 +28,11 @@
   --shadow-ink: rgba(15, 29, 64, 0.1);
   --wine-08: rgba(102, 20, 20, 0.08);   /* fundo dos ícones de alerta */
   --blue-08: rgba(30, 58, 138, 0.08);   /* fundo dos ícones de soluções */
+  --wine-30: rgba(102, 20, 20, 0.3);    /* linha da linha do tempo do método */
 
   /* Tipografia */
   --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;   /* títulos H1/H2 e citação */
   --fs-sm: 0.9375rem;                                 /* 15px */
   --fs-base: 1rem;                                    /* 16px */
   --fs-md: 1.125rem;                                  /* 18px */
@@ -82,6 +84,7 @@ h1, h2, h3 {
   color: var(--blue);
   text-wrap: balance;
 }
+h1, h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; }
 p { text-wrap: pretty; }
 ul, ol { list-style: none; }
 a { color: inherit; text-decoration: none; }
@@ -161,6 +164,12 @@ main:focus { outline: none; }
 .dark .btn-outline { color: var(--ice); }
 .dark .btn-outline:hover { background: var(--ice); border-color: var(--ice); color: var(--blue); }
 
+/* Seção em vinho: o botão principal inverte para gelo */
+.wine { background: var(--wine); }
+.wine .btn-primary { background: var(--ice); border-color: var(--ice); color: var(--wine); }
+.wine .btn-primary:hover { background: var(--white); border-color: var(--white); }
+.wine .eyebrow::before { background: var(--ice-70); }
+
 .btn-group { display: flex; flex-direction: column; gap: var(--space-4); }
 
 /* ============ CABEÇALHO ============ */
@@ -239,7 +248,7 @@ html:not(.js) .nav-menu {
 }
 .hero-inner { position: relative; }
 .hero h1 {
-  font-size: var(--fs-h1); font-weight: 800;
+  font-size: var(--fs-h1);
   max-width: 16ch; margin-bottom: var(--space-7);
   color: var(--ice);
 }
@@ -350,18 +359,31 @@ html:not(.js) .nav-menu {
 .cta-band strong { color: var(--ice); font-weight: 700; }
 
 /* ============ MÉTODO KORE ============ */
-.passos { counter-reset: none; }
+/* Linha do tempo: vertical no celular, horizontal no desktop */
 .passo {
+  position: relative;
   display: grid; grid-template-columns: 48px 1fr; gap: var(--space-4);
-  padding: var(--space-6) 0; border-top: 1px solid var(--line); align-items: start;
+  padding-bottom: var(--space-6); align-items: start;
 }
-.passo:last-child { border-bottom: 1px solid var(--line); }
-.passo-num { font-size: 2.125rem; font-weight: 800; color: var(--wine); line-height: 1; }
-.passo h3 { font-size: var(--fs-h3); margin-bottom: var(--space-2); }
+.passo:last-child { padding-bottom: 0; }
+.passo:not(:last-child)::after {
+  content: ""; position: absolute;
+  left: 23px; top: 56px; bottom: 8px; width: 2px;
+  background: var(--wine-30); border-radius: 2px;
+}
+.passo-num {
+  display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid var(--wine); background: var(--white);
+  color: var(--wine); font-size: var(--fs-sm); font-weight: 800; line-height: 1;
+}
+.passo:first-child .passo-num { background: var(--wine); color: var(--ice); }
+.passo h3 { font-size: var(--fs-h3); margin: 10px 0 var(--space-2); }
 .passo p { color: var(--gray); max-width: 65ch; }
 
 .quote {
   margin: var(--space-9) 0 0;
+  font-family: var(--serif);
   font-style: italic; font-size: clamp(1.375rem, 1rem + 1.5vw, 1.875rem); font-weight: 500;
   color: var(--blue); line-height: 1.4; max-width: 32ch;
   border-left: 4px solid var(--wine); padding-left: var(--space-5);
@@ -433,12 +455,31 @@ html:not(.js) .nav-menu {
 .canal a:hover { text-decoration-color: var(--ice); }
 
 /* ============ RODAPÉ ============ */
-.site-footer { background: var(--blue-deep); color: var(--ice-70); padding: var(--space-6) 0; font-size: var(--fs-sm); }
-.footer-inner { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
-.footer-brand { display: flex; align-items: center; gap: var(--space-4); }
+.site-footer { background: var(--blue-deep); color: var(--ice-70); padding: var(--space-9) 0 var(--space-6); font-size: var(--fs-sm); }
+.footer-grid { display: grid; gap: var(--space-7); grid-template-columns: 1fr; }
+.footer-brand { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); }
 .footer-badge { background: var(--white); border-radius: 10px; padding: var(--space-2); display: flex; }
 .footer-badge img { height: 34px; width: auto; }
 .footer-name { color: var(--ice); font-weight: 600; font-size: 1.0625rem; }
+.footer-about p { max-width: 36ch; }
+.footer-title {
+  font-family: var(--sans);
+  color: var(--ice); font-size: 0.8125rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: var(--space-4);
+}
+.footer-col li + li { margin-top: var(--space-3); }
+.footer-col a, .footer-top {
+  color: var(--ice-82); overflow-wrap: anywhere;
+  text-decoration: underline; text-decoration-color: transparent;
+  text-underline-offset: 4px; text-decoration-thickness: 1.5px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.footer-col a:hover, .footer-top:hover { color: var(--ice); text-decoration-color: currentColor; }
+.footer-bottom {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  margin-top: var(--space-8); padding-top: var(--space-5);
+  border-top: 1px solid var(--ice-10);
+}
 
 /* ============ WHATSAPP FLUTUANTE (celular) ============ */
 .wa-float {
@@ -479,9 +520,8 @@ html:not(.js) .nav-menu {
   .aviso { padding: var(--space-8) var(--space-7); }
   .cta-band { padding: var(--space-8) var(--space-7); }
   .consultor { padding: var(--space-8) var(--space-7); }
-  .passo { grid-template-columns: 90px 1fr; gap: var(--space-6); }
-  .passo-num { font-size: 3.25rem; }
-  .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
   .deco-arc { right: -20%; }
 }
 
@@ -506,6 +546,7 @@ html:not(.js) .nav-menu {
   .aviso .btn { flex: none; }
   .wa-float { display: none; }
   .site-footer { padding-bottom: var(--space-6); }
+  .footer-grid { grid-template-columns: 2fr 1fr 1.4fr 1fr; gap: var(--space-8); }
   .canais { grid-template-columns: repeat(3, 1fr); }
   .principios { grid-template-columns: repeat(4, 1fr); }
   .nr-cols { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
@@ -515,6 +556,17 @@ html:not(.js) .nav-menu {
   .cta-band .btn { flex: none; }
   .deco-arc { right: -6%; width: 560px; }
   .deco-arc-contato { right: -160px; width: 480px; }
+}
+
+@media (min-width: 1024px) {
+  .passos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-5); }
+  .passo { display: block; padding-bottom: 0; }
+  .passo:not(:last-child)::after {
+    left: 60px; right: calc(-1 * var(--space-5) + 8px);
+    top: 23px; bottom: auto; width: auto; height: 2px;
+  }
+  .passo h3 { margin: var(--space-5) 0 var(--space-2); }
+  .passo p { font-size: var(--fs-sm); }
 }
 
 /* ============ MOVIMENTO REDUZIDO ============ */
