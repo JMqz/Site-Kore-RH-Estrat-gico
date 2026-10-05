@@ -62,6 +62,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!('IntersectionObserver' in window)) return;
 
+  /* ---------- WhatsApp flutuante: aparece após o topo e some no contato/rodapé ---------- */
+  var waFloat = document.getElementById('waFloat');
+  var hero = document.getElementById('inicio');
+  if (waFloat && hero) {
+    var ocultaEm = new Set();
+    var passouHero = false;
+    var atualizaWa = function () {
+      waFloat.classList.toggle('visible', passouHero && ocultaEm.size === 0);
+    };
+    new IntersectionObserver(function (entradas) {
+      passouHero = !entradas[0].isIntersecting;
+      atualizaWa();
+    }).observe(hero);
+    var observaFim = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) ocultaEm.add(entrada.target);
+        else ocultaEm.delete(entrada.target);
+      });
+      atualizaWa();
+    });
+    document.querySelectorAll('#contato, .site-footer').forEach(function (el) { observaFim.observe(el); });
+  }
+
   /* ---------- Link ativo no menu ---------- */
   var links = {};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
@@ -82,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- Animação de entrada (desligada com movimento reduzido) ---------- */
   if (reduzMovimento) return;
-  var alvos = document.querySelectorAll('.section-head, .grid > li, .passo, .nr-col, .principio, .consultor, .cta-band, .quote, .canal, .posicionamento-inner > div, .sobre-inner > div');
+  var alvos = document.querySelectorAll('.section-head, .grid > li, .sinal, .segmento, .passo, .nr-col, .principio, .consultor, .cta-band, .quote, .canal, .aviso, .posicionamento-inner > div, .sobre-inner > div');
   var observaReveal = new IntersectionObserver(function (entradas, obs) {
     entradas.forEach(function (entrada) {
       if (!entrada.isIntersecting) return;
