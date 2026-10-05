@@ -71,6 +71,7 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overflow-x: clip; /* não quebra o cabeçalho fixo (sticky) */
 }
 h1, h2, h3 {
   font-weight: 700;
@@ -105,6 +106,7 @@ img { height: auto; }
   font-weight: 600;
 }
 .skip-link:focus { top: var(--space-4); }
+main:focus { outline: none; }
 
 .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
 .section { padding: var(--section-y) 0; position: relative; }
@@ -219,6 +221,14 @@ img { height: auto; }
 .nav-links a:hover,
 .nav-links a[aria-current="true"] { color: var(--blue); }
 .nav-menu .btn { margin-top: var(--space-5); }
+
+/* Sem JavaScript: menu sempre visível, sem o botão hambúrguer */
+html:not(.js) .nav { flex-wrap: wrap; }
+html:not(.js) .menu-toggle { display: none; }
+html:not(.js) .nav-menu {
+  position: static; visibility: visible; opacity: 1; transform: none;
+  width: 100%; padding: 0; border: none; box-shadow: none; background: none;
+}
 
 /* ============ HERO ============ */
 .hero {

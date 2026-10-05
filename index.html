@@ -20,6 +20,10 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Logo Kore RH Estratégico">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RH Estratégico para empresas que querem transformar pessoas em resultado.">
+  <meta name="twitter:description" content="Consultoria de RH Estratégico. A Kore ajuda empresas a diagnosticar problemas, desenvolver lideranças, estruturar cultura e reduzir riscos psicossociais.">
+  <meta name="twitter:image" content="https://jmqz.github.io/Site-Kore-RH-Estrat-gico/img/og-image.png">
+  <meta name="robots" content="index, follow">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -31,6 +35,34 @@
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
+
+  <!-- Dados estruturados (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Kore RH Estratégico",
+    "description": "Consultoria de RH Estratégico: diagnóstico organizacional, desenvolvimento de lideranças, cultura organizacional, treinamentos e NR-01 / riscos psicossociais.",
+    "url": "https://jmqz.github.io/Site-Kore-RH-Estrat-gico/",
+    "logo": "https://jmqz.github.io/Site-Kore-RH-Estrat-gico/img/logo_full.png",
+    "image": "https://jmqz.github.io/Site-Kore-RH-Estrat-gico/img/og-image.png",
+    "telephone": "+55-34-98441-1848",
+    "email": "contato@korerhestrategico.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Coronel Delfino Nunes, 1111",
+      "addressLocality": "Frutal",
+      "addressRegion": "MG",
+      "addressCountry": "BR"
+    },
+    "areaServed": "BR",
+    "founder": { "@type": "Person", "name": "Eduardo Guarachi", "jobTitle": "Psicólogo organizacional e consultor em RH estratégico" },
+    "sameAs": [
+      "https://instagram.com/korerhestrategico",
+      "https://www.linkedin.com/company/kore-rh-estrategico/"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -39,7 +71,7 @@
   <!-- ============ CABEÇALHO ============ -->
   <header class="site-header" id="siteHeader">
     <nav class="nav" aria-label="Navegação principal">
-      <a href="#inicio" class="brand"><img src="img/logo_full.png" alt="Kore RH Estratégico - início" width="450" height="128"></a>
+      <a href="#inicio" class="brand"><picture><source srcset="img/logo_full.webp" type="image/webp"><img src="img/logo_full.png" alt="Kore RH Estratégico - início" width="450" height="128" fetchpriority="high"></picture></a>
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
@@ -53,12 +85,12 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
-        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Agendar diagnóstico</a>
+        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar diagnóstico</a>
       </div>
     </nav>
   </header>
 
-  <main id="conteudo">
+  <main id="conteudo" tabindex="-1">
 
     <!-- ============ HERO ============ -->
     <section class="hero dark" id="inicio">
@@ -69,11 +101,9 @@
       <div class="container hero-inner">
         <p class="eyebrow">Consultoria de RH Estratégico</p>
         <h1>RH Estratégico para empresas que querem transformar pessoas em resultado.</h1>
-        <!-- TODO: parágrafo de apoio do hero (até 2 frases). Exemplo de marcação:
-        <p class="hero-lead">Texto aqui.</p>
-        -->
+        <p class="hero-lead">Diagnóstico, método e acompanhamento para desenvolver lideranças, fortalecer a cultura e reduzir riscos psicossociais — com impacto real no negócio.</p>
         <div class="btn-group">
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Agendar diagnóstico</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar diagnóstico</a>
           <a href="#solucoes" class="btn btn-outline">Conhecer soluções</a>
         </div>
       </div>
@@ -101,7 +131,7 @@
           <h2 id="sinais-titulo">Quando a gestão de pessoas começa a travar o crescimento</h2>
           <p>É hora de olhar para o núcleo e parar de perder dinheiro.</p>
         </div>
-        <ul class="grid grid-3">
+        <ul class="grid grid-3" role="list">
           <li class="card card-accent"><span class="card-num">01</span><h3>Alta rotatividade</h3><p>Dificuldade de reter pessoas e turnover acima do esperado para o setor.</p></li>
           <li class="card card-accent"><span class="card-num">02</span><h3>Liderança despreparada</h3><p>Líderes desalinhados, sem ferramentas para comunicar, dar feedback ou acompanhar equipes.</p></li>
           <li class="card card-accent"><span class="card-num">03</span><h3>Conflitos internos recorrentes</h3><p>Tensões entre áreas, pessoas ou hierarquias que consomem energia e travam entregas.</p></li>
@@ -111,7 +141,7 @@
         </ul>
         <div class="cta-band dark">
           <p>A Kore começa pela escuta diagnóstica. Primeiro entendemos o contexto, depois estruturamos o caminho. <strong>Vamos entender o que está acontecendo na sua empresa antes de propor qualquer solução.</strong></p>
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Agendar conversa inicial</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Agendar conversa inicial</a>
         </div>
       </div>
     </section>
@@ -123,47 +153,47 @@
           <p class="eyebrow">Soluções</p>
           <h2 id="solucoes-titulo">Soluções para transformar pessoas, liderança e cultura em resultado.</h2>
         </div>
-        <ul class="grid grid-3">
+        <ul class="grid grid-3" role="list">
           <li class="card card-sol">
             <span class="card-num">01</span>
             <h3>Diagnóstico Organizacional</h3>
-            <!-- TODO: descrição de Diagnóstico Organizacional. Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de Diagnóstico Organizacional</span></a>
+            <p>Leitura estruturada de cultura, liderança, processos, comunicação e clima para identificar as causas reais dos problemas e definir prioridades de ação.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de Diagnóstico Organizacional</span></a>
           </li>
           <li class="card card-sol">
             <span class="card-num">02</span>
             <h3>RH Estratégico</h3>
-            <!-- TODO: descrição de RH Estratégico. Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de RH Estratégico</span></a>
+            <p>Estruturação do RH como área de gestão, com processos, políticas e indicadores que sustentam decisões e acompanham o crescimento do negócio.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de RH Estratégico</span></a>
           </li>
           <li class="card card-sol">
             <span class="card-num">03</span>
             <h3>Desenvolvimento de Lideranças</h3>
-            <!-- TODO: descrição de Desenvolvimento de Lideranças. Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de Desenvolvimento de Lideranças</span></a>
+            <p>Preparação de líderes para comunicar, dar feedback, conduzir conflitos e acompanhar equipes com clareza e responsabilidade.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de Desenvolvimento de Lideranças</span></a>
           </li>
           <li class="card card-sol">
             <span class="card-num">04</span>
             <h3>Treinamentos Corporativos</h3>
-            <!-- TODO: descrição de Treinamentos Corporativos. Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de Treinamentos Corporativos</span></a>
+            <p>Treinamentos construídos a partir do diagnóstico e da realidade da empresa, com foco em aplicação prática no dia a dia.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de Treinamentos Corporativos</span></a>
           </li>
           <li class="card card-sol">
             <span class="card-num">05</span>
             <h3>Cultura Organizacional</h3>
-            <!-- TODO: descrição de Cultura Organizacional. Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de Cultura Organizacional</span></a>
+            <p>Alinhamento entre valores declarados e comportamentos reais, com rituais, comunicação e práticas de gestão que tornam a cultura vivida.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de Cultura Organizacional</span></a>
           </li>
           <li class="card card-sol">
             <span class="card-num">06</span>
             <h3>NR's e Riscos Psicossociais (NR-01)</h3>
-            <!-- TODO: descrição de NR's e Riscos Psicossociais (NR-01). Ex.: <p>Texto aqui.</p> -->
-            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener">Solicitar proposta<span class="sr-only"> de NR's e Riscos Psicossociais</span></a>
+            <p>Apoio técnico-consultivo para levantar fatores psicossociais, construir a matriz de riscos e estruturar o plano de ação exigido pela NR-01.</p>
+            <a class="card-link" href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener noreferrer">Solicitar proposta<span class="sr-only"> de NR's e Riscos Psicossociais</span></a>
           </li>
         </ul>
         <div class="btn-group section-foot">
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Solicitar proposta</a>
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-outline">Falar com a Kore</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Solicitar proposta</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-outline">Falar com a Kore</a>
         </div>
       </div>
     </section>
@@ -176,7 +206,7 @@
           <h2 id="metodo-titulo">Diagnóstico, clareza e execução.</h2>
           <p>Antes de recomendar uma solução, entendemos o sistema. A Kore trabalha com método consultivo estruturado para que cada intervenção tenha sentido, prioridade e aplicação prática — sem improvisos, sem soluções genéricas e sem etapas puladas.</p>
         </div>
-        <ol class="passos">
+        <ol class="passos" role="list">
           <li class="passo"><span class="passo-num" aria-hidden="true">01</span><div><h3>Escuta diagnóstica</h3><p>Entendemos o contexto, ouvimos lideranças e identificamos as dores reais por trás dos sintomas apresentados.</p></div></li>
           <li class="passo"><span class="passo-num" aria-hidden="true">02</span><div><h3>Leitura organizacional</h3><p>Cruzamos informações sobre cultura, liderança, processos, comunicação, RH e saúde mental no trabalho.</p></div></li>
           <li class="passo"><span class="passo-num" aria-hidden="true">03</span><div><h3>Plano de ação</h3><p>Transformamos achados em prioridades, responsáveis, prazos, indicadores e decisões práticas e aplicáveis.</p></div></li>
@@ -184,7 +214,7 @@
           <li class="passo"><span class="passo-num" aria-hidden="true">05</span><div><h3>Acompanhamento</h3><p>Apoiamos a sustentação das mudanças com rituais, indicadores, checkpoints e ajustes de rota.</p></div></li>
         </ol>
         <blockquote class="quote">"A Kore não entrega apenas conteúdo. Entregamos clareza para decidir, método para executar e acompanhamento para evoluir."</blockquote>
-        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Solicitar proposta</a>
+        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20uma%20proposta%20da%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Solicitar proposta</a>
       </div>
     </section>
 
@@ -199,7 +229,7 @@
         <div class="nr-cols">
           <div class="nr-col">
             <h3>O que a Kore apoia</h3>
-            <ul class="plus-list">
+            <ul class="plus-list" role="list">
               <li>Levantamento de fatores psicossociais relacionados ao trabalho</li>
               <li>Diagnóstico organizacional preventivo</li>
               <li>Organização de evidências e construção de matriz de riscos</li>
@@ -210,7 +240,7 @@
           </div>
           <div class="nr-col">
             <h3>Fatores que podem ser investigados</h3>
-            <ul class="plus-list">
+            <ul class="plus-list" role="list">
               <li>Sobrecarga de trabalho e pressão excessiva por resultado</li>
               <li>Falta de clareza de papéis e responsabilidades</li>
               <li>Conflitos interpessoais e condutas inadequadas</li>
@@ -222,8 +252,8 @@
           </div>
         </div>
         <div class="btn-group">
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener" class="btn btn-primary">Quero estruturar meu plano de ação</a>
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener" class="btn btn-outline">Adequar minha empresa à NR-01</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero estruturar meu plano de ação</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20estruturar%20a%20adequa%C3%A7%C3%A3o%20da%20minha%20empresa%20%C3%A0%20NR-01%20e%20o%20plano%20de%20a%C3%A7%C3%A3o%20para%20riscos%20psicossociais." target="_blank" rel="noopener noreferrer" class="btn btn-outline">Adequar minha empresa à NR-01</a>
         </div>
       </div>
     </section>
@@ -242,7 +272,7 @@
             <p>Trabalhamos com empresários, diretores e gestores que entendem que pessoas são o núcleo do negócio — e que precisam de um parceiro consultivo capaz de transformar desafios humanos em decisões estratégicas e ações concretas.</p>
           </div>
         </div>
-        <ul class="principios">
+        <ul class="principios" role="list">
           <li class="principio"><strong>Diagnóstico antes de solução.</strong><span>Nunca propomos antes de entender.</span></li>
           <li class="principio"><strong>Escuta antes de proposta.</strong><span>O contexto do cliente orienta tudo.</span></li>
           <li class="principio"><strong>Método antes de improviso.</strong><span>Estrutura que sustenta execução.</span></li>
@@ -251,7 +281,7 @@
         <article class="consultor">
           <h3>Eduardo Guarachi</h3>
           <p>Psicólogo organizacional e consultor em RH estratégico, Eduardo conduz projetos de diagnóstico, desenvolvimento organizacional, liderança, cultura, NR-01, saúde mental no trabalho e estruturação de RH com abordagem consultiva, humana e orientada a resultado. Sua atuação combina rigor metodológico com escuta apurada, entregando aos clientes não apenas análises, mas caminhos claros para agir com mais inteligência na gestão de pessoas.</p>
-          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-outline">Falar com a Kore</a>
+          <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-outline">Falar com a Kore</a>
         </article>
       </div>
     </section>
@@ -263,7 +293,7 @@
           <p class="eyebrow">Para quem é</p>
           <h2 id="paraquem-titulo">Para empresas que precisam amadurecer a gestão de pessoas sem perder o foco no resultado.</h2>
         </div>
-        <ul class="grid grid-3">
+        <ul class="grid grid-3" role="list">
           <li class="card card-side"><h3>Indústrias</h3><p>Que precisam melhorar liderança operacional, padronizar processos e fortalecer cultura em ambientes de alta pressão produtiva.</p></li>
           <li class="card card-side"><h3>Varejos</h3><p>Que enfrentam alta rotatividade, pressão operacional intensa e necessidade de padronização de atendimento e gestão de equipes.</p></li>
           <li class="card card-side"><h3>Agronegócios</h3><p>Que precisam estruturar gestão de pessoas, liderança de campo e processos de RH em operações com especificidades únicas.</p></li>
@@ -282,7 +312,7 @@
           <p class="eyebrow">Insights</p>
           <h2 id="insights-titulo">Insights para empresas que querem amadurecer sua gestão de pessoas.</h2>
         </div>
-        <ul class="grid grid-insights">
+        <ul class="grid grid-insights" role="list">
           <li class="card card-insight"><span class="badge">Em breve</span><h3>Como saber se sua empresa precisa de um diagnóstico organizacional</h3><p>Os sintomas que indicam que é hora de parar de agir por intuição e começar a entender o sistema com método.</p></li>
           <li class="card card-insight"><span class="badge">Em breve</span><h3>O papel da liderança na prevenção de riscos psicossociais</h3><p>Por que líderes são o fator mais crítico na construção de ambientes de trabalho psicologicamente seguros.</p></li>
           <li class="card card-insight"><span class="badge">Em breve</span><h3>RH estratégico: quando o operacional já não sustenta o crescimento</h3><p>O momento em que gerir folha de pagamento e contratar não é mais suficiente para uma empresa que quer crescer com consistência.</p></li>
@@ -302,16 +332,16 @@
         <div class="section-head section-head-wide">
           <p class="eyebrow">Contato</p>
           <h2 id="contato-titulo">Vamos entender o que sua empresa precisa desenvolver agora.</h2>
-          <!-- TODO: parágrafo de introdução do contato (opcional). Ex.: <p>Texto aqui.</p> -->
+          <p>Conte o momento da sua empresa. A primeira conversa é uma escuta diagnóstica: entendemos o contexto antes de propor qualquer caminho.</p>
         </div>
-        <ul class="canais">
-          <li class="canal"><span class="canal-label">WhatsApp</span><a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener">(34) 98441-1848</a></li>
+        <ul class="canais" role="list">
+          <li class="canal"><span class="canal-label">WhatsApp</span><a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer">(34) 98441-1848</a></li>
           <li class="canal"><span class="canal-label">E-mail</span><a href="mailto:contato@korerhestrategico.com.br">contato@korerhestrategico.com.br</a></li>
-          <li class="canal"><span class="canal-label">Instagram</span><a href="https://instagram.com/korerhestrategico" target="_blank" rel="noopener">@korerhestrategico</a></li>
-          <li class="canal"><span class="canal-label">LinkedIn</span><a href="https://www.linkedin.com/company/kore-rh-estrategico/" target="_blank" rel="noopener">Kore RH Estratégico</a></li>
+          <li class="canal"><span class="canal-label">Instagram</span><a href="https://instagram.com/korerhestrategico" target="_blank" rel="noopener noreferrer">@korerhestrategico</a></li>
+          <li class="canal"><span class="canal-label">LinkedIn</span><a href="https://www.linkedin.com/company/kore-rh-estrategico/" target="_blank" rel="noopener noreferrer">Kore RH Estratégico</a></li>
           <li class="canal"><span class="canal-label">Localização</span><span>Frutal-MG / Av. Coronel Delfino Nunes, 1111</span></li>
         </ul>
-        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener" class="btn btn-primary">Falar via WhatsApp</a>
+        <a href="https://wa.me/5534984411848?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Kore%20RH%20Estrat%C3%A9gico." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Falar via WhatsApp</a>
       </div>
     </section>
 
@@ -321,10 +351,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="footer-badge"><img src="img/logo_icon.png" alt="" width="105" height="128"></span>
+        <span class="footer-badge"><picture><source srcset="img/logo_icon.webp" type="image/webp"><img src="img/logo_icon.png" alt="" width="105" height="128" loading="lazy" decoding="async"></picture></span>
         <span class="footer-name">Kore RH Estratégico</span>
       </div>
-      <p>&copy; <span id="ano">2025</span> Kore RH Estratégico — Frutal-MG</p>
+      <p>&copy; <span id="ano">2026</span> Kore RH Estratégico — Frutal-MG</p>
     </div>
   </footer>
 
